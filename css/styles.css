@@ -92,7 +92,7 @@ img {
     justify-content: center;
 }
 
-/* HEADER  */
+/* HEADER ------------------------------------------------------------------------ */
 
 .header {
     padding: 25px 0;
@@ -105,7 +105,7 @@ img {
 
 .navigation {
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.2;
     display: flex;
     align-items: center;
@@ -161,9 +161,23 @@ img {
 
 .current {
     color: var(--accentColor);
+    position: relative;
 }
 
-/* FOOTER  */
+.current::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -31.39px;
+    transform: translate(-50% , -100%);
+    width: calc(100% + 3px);
+    height: 4px;
+    background: var(--accentColor);
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+/* FOOTER -------------------------------------------------------------------------*/
 
 .footer {
     background: var(--bgG);
@@ -232,7 +246,7 @@ img {
     margin-bottom: 20px;
 }
 
-/* INDEX */
+/* INDEX --------------------------------------------------------------------------*/
 
 .effective {
     max-width: 1600px;
@@ -319,10 +333,26 @@ img {
     color: var(--secondaryColor);
 }
 
-.whatdoing-image img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+.whatdoing-image {
+    position: relative;
+}
+
+.whatdoing-image p {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--bgW);
+    background: rgba(47, 48, 58, 0.8);
 }
 
 .whatdoing-title,
@@ -390,7 +420,7 @@ img {
     border: 1px solid var(--accentColor);
 }
 
-/* PORFOLIO */
+/* PORFOLIO -----------------------------------------------------------------------*/
 
 .filter-list {
     margin-bottom: 50px;
@@ -435,6 +465,29 @@ img {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.cards-card:hover .card-thumb p,
+.cards-card:focus .card-thumb p {
+    opacity: 1;
+}
+
+.card-thumb {
+    position: relative;
+}
+
+.card-thumb p {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 63px 24px;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    line-height: 1.56;
+    color: var(--bgW);
+    background: rgba(33, 150, 243, 0.9);
+    opacity: 0;
+}
+
 .card-description {
     border-right: 1px solid #EEEEEE;
     border-left: 1px solid #EEEEEE;
@@ -464,4 +517,42 @@ img {
 .cards-text {
     line-height: 1.88;
     color: var(--secondaryColor);
+}
+
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    width: 528px;
+    height: 581px;
+    background: var(--bgW);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+}
+
+.close-btn {
+    display: block;
+    margin: 8px 8px 0 auto;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    background: inherit;
 }

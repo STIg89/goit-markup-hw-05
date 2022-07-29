@@ -53,7 +53,7 @@
         <section class="effective">
             <div class="container">
                     <h1 class="effective-title title">Ефективні рішення для вашого бізнесу</h1>
-                    <button  type="button" class="effective-btn btn">Замовити послугу</button>
+                    <button data-modal-open type="button" class="effective-btn btn">Замовити послугу</button>
             </div>
         </section>
         <section class="benefits">
@@ -105,12 +105,15 @@
                 <ul class="whatdoing-images list">
                     <li class="whatdoing-image">
                         <img src="./img/coding.jpg" alt="coding" width="370" height="294">
+                        <p>Десктопні додатки</p>
                     </li>
                     <li class="whatdoing-image">
                         <img src="./img/adaptive.jpg" alt="adaptive" width="370" height="294">
+                        <p>Мобільні додатки</p>
                     </li>
                     <li class="whatdoing-image">
                         <img src="./img/design.jpg" alt="design" width="370" height="294">
+                        <p>Дизайнерські рішення</p>
                     </li>
                 </ul>
             </div>
@@ -373,5 +376,13 @@
             </div>
         </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button data-modal-close type="button" class="close-btn btn">
+                <img src="./img/close-black.svg"></img>
+            </button>
+        </div>
+    </div>
+    <script src="./js/modal.js"></script>
 </body>
 </html>
