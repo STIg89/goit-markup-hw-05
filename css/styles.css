@@ -45,7 +45,7 @@ img {
     display: block;
     max-width: 100%;
     height: auto;
-}
+} 
 
 .btn {
     cursor: pointer;
@@ -113,10 +113,7 @@ img {
 
 .navigation-list {
     display: flex;
-}
-
-.navigation-item:not(:last-child) {
-    margin-right: 50px;
+    gap: 50px;
 }
 
 .navigation-link {
@@ -293,10 +290,6 @@ img {
     color: var(--bgW);
 }
 
-.benefits {
-    padding-bottom: 0;
-}
-
 .benefits-title,
 .porfolio-title {
     position: absolute;
@@ -331,6 +324,10 @@ img {
     font-size: 14px;
     line-height: 1.71;
     color: var(--secondaryColor);
+}
+
+.whatdoing {
+    padding-top: 0;
 }
 
 .whatdoing-image {
@@ -424,6 +421,7 @@ img {
 
 .filter-list {
     margin-bottom: 50px;
+    gap: 8px;
 }
 
 .filter-button {
@@ -433,10 +431,6 @@ img {
     font-weight: 500;
     line-height: 1.62;
     padding: 6px 22px;
-}
-
-.filter-btn:not(:last-child) {
-    margin-right: 8px;
 }
 
 .filter-button:hover,
@@ -449,16 +443,12 @@ img {
 .cards-list {
     display: flex;
     flex-wrap: wrap;
-
-    margin-right: calc(-1 * var(--cardGap));
-    margin-bottom: calc(-1 * var(--cardGap));
+    gap: var(--cardGap);
 }
 
 .cards-card {
-    flex-basis: calc((100% - var(--cardGap)*3) / 3);
-    margin-right: var(--cardGap);
-    margin-bottom: var(--cardGap);
-}
+    flex-basis: calc((100% - var(--cardGap)*2) / 3);
+    }
 
 .cards-card:hover,
 .cards-card:focus {
@@ -533,6 +523,8 @@ img {
     opacity: 0;
     pointer-events: none;
 }
+
+/* Modal ----------------------------------------------------------------------*/
 
 .modal {
     width: 528px;
