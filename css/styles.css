@@ -27,6 +27,12 @@ body {
         padding: 0;
     }
 
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+} 
+
 .container {
     width: 1200px;
     margin: 0 auto;
@@ -41,12 +47,6 @@ body {
     padding: 94px 0 94px 0;
 }
 
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-} 
-
 .btn {
     cursor: pointer;
     font-family: inherit;
@@ -60,6 +60,11 @@ img {
     text-decoration: none;
     font-style: normal;
     color: inherit;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link:hover,
@@ -278,15 +283,17 @@ img {
     text-align: center;
     letter-spacing: 0.06em;
     color: var(--bgW);
-    background: var(--accentColor);
+    background-color: var(--accentColor);
     border: none;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .effective-btn:focus,
 .effective-btn:hover {
-    background: #188CE8;
+    background-color: #188CE8;
     color: var(--bgW);
 }
 
@@ -402,6 +409,8 @@ img {
     height: 44px;
     border-radius: 50%;
     fill: var(--iconG);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link {
@@ -410,6 +419,8 @@ img {
     border: 1px solid var(--iconG);
     border-radius: 4px;
     fill: var(--iconG);
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link:hover,
@@ -431,11 +442,14 @@ img {
     font-weight: 500;
     line-height: 1.62;
     padding: 6px 22px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-button:hover,
 .filter-button:focus {
-    background: var(--accentColor);
+    background-color: var(--accentColor);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
     color: var(--bgW);
 }
@@ -448,6 +462,7 @@ img {
 
 .cards-card {
     flex-basis: calc((100% - var(--cardGap)*2) / 3);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
 .cards-card:hover,
@@ -457,14 +472,16 @@ img {
 
 .cards-card:hover .card-thumb p,
 .cards-card:focus .card-thumb p {
-    opacity: 1;
+    /* opacity: 1; */
+    transform: translateY(0);
 }
 
 .card-thumb {
     position: relative;
+    overflow: hidden;
 }
 
-.card-thumb p {
+.card-overlay {
     position: absolute;
     left: 0;
     top: 0;
@@ -475,7 +492,10 @@ img {
     line-height: 1.56;
     color: var(--bgW);
     background: rgba(33, 150, 243, 0.9);
-    opacity: 0;
+    /* opacity: 0; */
+
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-description {
@@ -483,12 +503,6 @@ img {
     border-left: 1px solid #EEEEEE;
     border-bottom: 1px solid #EEEEEE;
     padding: 20px 24px;
-}
-
-.cards-image {
-    display: block;
-    max-width: 100%;
-    height: auto;
 }
 
 .cards-title {
@@ -509,6 +523,7 @@ img {
     color: var(--secondaryColor);
 }
 
+/* Modal ----------------------------------------------------------------------*/
 
 .backdrop {
     position: fixed;
@@ -517,6 +532,9 @@ img {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.2);
+
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -524,7 +542,10 @@ img {
     pointer-events: none;
 }
 
-/* Modal ----------------------------------------------------------------------*/
+.backdrop.is-hidden .modal{
+    transform: translate(-50% , -50%) scale(0.7);
+    opacity: 0;
+} 
 
 .modal {
     width: 528px;
@@ -536,7 +557,10 @@ img {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50% , -50%);
+    transform: translate(-50% , -50%) scale(1);
+    opacity: 1;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-btn {
