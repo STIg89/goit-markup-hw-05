@@ -466,11 +466,15 @@ img {
 
 .cards-card {
     flex-basis: calc((100% - var(--cardGap)*2) / 3);
-    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-.cards-card:hover,
-.cards-card:focus {
+.cards-link {
+    display: block;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cards-link:hover,
+.cards-link:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
@@ -497,8 +501,8 @@ img {
     z-index 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.cards-card:hover .card-overlay,
-.cards-card:focus .card-overlay {
+.cards-link:hover .card-overlay,
+.cards-link:focus .card-overlay {
     transform: translateY(0);
     z-index: 1;
 }
